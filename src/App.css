@@ -1,38 +1,71 @@
-.App {
+.container h2 {
   text-align: center;
+  margin: 25px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.submit-form {
+  max-width: 300px;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+#derecha {
+  margin-right: 1000px;
+}
+
+#myimg{
+  width: 900px ;
+}
+
+
+
+#contenedor{
+  height: 105px;
+  width: 100%;
+  margin: 200px auto;
+ cursor: pointer;
+}
+#cont-iconos{
+  height: 130%;
+  width: 120%;
+  margin: auto;
+  border-radius: 70-px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: #ebb60a4b;
+  opacity: 0;
+  transition: 2s;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+video{
+  height: 290%;
+  width: 200%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+span img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
+
+#encanta img{
+  height: 95px;
+  width: 95px;
+}
+      
+  .mostrar1{
+      opacity: 0;
+  }
