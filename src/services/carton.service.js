@@ -1,4 +1,5 @@
 import firebase from "../firebase";
+
 const db = firebase.collection("cartons");
 
 class CartonDataServices {
@@ -19,4 +20,4 @@ class CartonDataServices {
   }
 }
 const CartonDataService = new CartonDataServices();
-export default  CartonDataService();
+export default  CartonDataService

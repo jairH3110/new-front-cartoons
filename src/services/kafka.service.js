@@ -19,5 +19,5 @@ class kafkaServices {
   }
 
 }
-const kafkaService =  new kafkaServices();
-export default  kafkaService();
+const kafkaService = new kafkaServices();
+export default  kafkaService
