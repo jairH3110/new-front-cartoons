@@ -17,7 +17,7 @@ jobs:
         run: npm install
 #      - name: Test
 #        run: |
-#          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+#          npm tes  t -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - name: make .env 
         uses: SpicyPizza/create-envfile@v1.3
         with:
