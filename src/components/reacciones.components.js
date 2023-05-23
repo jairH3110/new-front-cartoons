@@ -5,7 +5,22 @@ import gusta from "../images/gusta.gif";
 import awita from "../images/entristece.gif";
 import angry from "../images/enoja.gif";
 import enrisa from "../images/divierte.gif";
- 
+import kafkaService from '../services/kafka.service'; 
+
+function saveLike(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("i-love-adsoftsito");
+  e.preventDefault();
+
+  
+}
 
 
 class Reaccion extends Component {
@@ -32,7 +47,9 @@ desaparecer(){
       
         <div  >
         <div  id="cont-iconos" onClick={this.desaparecer}>
-           <span  ><img  src={asom} alt=""  onClick={this.desaparecer}/></span>
+           <span  ><img  src={asom} alt=""  onClick={(e) => {
+                    e.preventDefault();
+                    saveLike(e, 1) }} /></span>
            <span ><img src={enc} alt="" onClick={this.desaparecer} /></span>
            <span ><img src={gusta} alt="" onClick={this.desaparecer} /></span>
            <span ><img src={awita} alt=""  onClick={this.desaparecer}/></span>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CartonDataService from "../services/carton.service";
-
+import Reaccion from "./reacciones.components";
 export default class Carton extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ export default class Carton extends Component {
     this.updatePublished = this.updatePublished.bind(this);
     this.updateCarton = this.updateCarton.bind(this);
     this.deleteCarton = this.deleteCarton.bind(this);
-
+  
     this.state = {
       currentCarton: {
         id: null,
@@ -114,40 +114,33 @@ export default class Carton extends Component {
 
     return (
       <div>
+        <Reaccion />
         <h4>Carton</h4>
         {currentCarton ? (
           <div className="edit-form">
+            
             <form>
               <div className="form-group">
-                <label htmlFor="title">Title</label>
+            
+                <label htmlFor="url">url</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="title"
-                  value={currentCarton.title}
-                  onChange={this.onChangeTitle}
+                  id="url"
+                  value={currentCarton.url}
+                  onChange={this.onChangeurl}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Description</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="description"
-                  value={currentCarton.description}
-                  onChange={this.onChangeDescription}
-                />
-              </div>
-
+            
               <div className="form-group">
                 <label>
                   <strong>Status:</strong>
                 </label>
                 {currentCarton.published ? "Published" : "Pending"}
               </div>
-
+<div>
               <video   src={currentCarton.url} className='imagen' id='myimg' alt="necesario para el usoxd" controls type="video/mp4"/>
-
+ </div>
             </form>
 
             {currentCarton.published ? (

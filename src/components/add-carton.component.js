@@ -6,21 +6,7 @@ import firebase from "firebase/compat/app"
 export const storage = firebase.storage();
 let links;
 export default class AddCarton extends Component {
-  
-
- /*  handleChange(e) {
-    if (e.target.files[0])zz
-        setFile(e.target.files[0]);
-  }*/  
-  
-   /* const path = `/images/${file.name}`;
-    const ref = storage.ref(path);
-    await ref.put(file);
-    const url = await ref.getDownloadURL();
-    setURL(url);
-    setFile(null);*/
-
-  
+    
   
   constructor(props) {
     super(props);
@@ -30,6 +16,7 @@ export default class AddCarton extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.saveCarton = this.saveCarton.bind(this);
     this.newCarton = this.newCarton.bind(this);
+    this.onChangeFile = this.onChangeFile.bind(this);
 
     this.state = {
       carton: "",
@@ -38,7 +25,9 @@ export default class AddCarton extends Component {
       title: "",
       submitted:false,
       file:null,
-      url:""
+      file2:null,
+      url:"",
+      url_img: ""
       
     };
   }
@@ -51,30 +40,67 @@ export default class AddCarton extends Component {
  }
 
 
+ onChangeFile2(e){
+  console.log(e.target.files[0]);
+  this.setState({
+    file2 : e.target.files[0],
+  });
+ }
+
+
+
  handleUpload(e, file) {
   e.preventDefault();
   console.log(file);
   alert(file.name); 
 
-  const uploadTask = storage.ref('/images'+ file.name).put(file);
+  const uploadTask = storage.ref('images/'+ file.name).put(file);
   uploadTask.on("state_changed", console.log, console.error,() => {
     storage
        .ref("")
-       .child("images"+file.name)
+       .child("images/"+file.name)
        .getDownloadURL()
-       .then((links) => {
-        alert(links);
-        this.state.url = links;
-
-          const video= document.getElementById('myimg')
-          video.setAttribute('src', links) 
-
+       .then((myurl) => {
+        alert(myurl);
+          
+          this.setState({url:myurl})
+          const imagen= document.getElementById('myimgen')
+          imagen.setAttribute('src', myurl)
        });
-       console.log(links);  
+     
       });
-       console.log(uploadTask.links);    
-    }
+       console.log(uploadTask.myurl);    
 
+
+      }
+
+
+      handleimage(e, file) {
+        e.preventDefault();
+        console.log(file);
+        alert(file.name); 
+      
+        const uploadTask = storage.ref('videos/'+ file.name).put(file);
+        uploadTask.on("state_changed", console.log, console.error,() => {
+          storage
+             .ref("")
+             .child("videos/"+file.name)
+             .getDownloadURL()
+             .then((links) => {
+              alert(links);
+             
+              this.setState({url_img:links})
+
+                const video = document.getElementById('myvideo')
+                video.setAttribute('src', links)
+             });
+             console.log(links);  
+            });
+             console.log(uploadTask.links);    
+            }
+      
+
+    
 
   onChangeCarton(e) {
     this.setState({
@@ -108,6 +134,7 @@ export default class AddCarton extends Component {
       published: true,
       title: this.state.title,
       url: this.state.url,
+      url_img: this.state.url_img
     };
 
     CartonDataService.create(data)
@@ -129,7 +156,8 @@ export default class AddCarton extends Component {
       published: false,
       title: "", 
       submitted: false,
-      url: ""
+      url: "",
+      url_img: ""
     });
   }
 
@@ -187,16 +215,36 @@ export default class AddCarton extends Component {
           <div >
             <form onSubmit= { (event) => {
                   this.handleUpload(event, this.state.file)
-            }}>
+                  this.handleimage(event, this.state.file2)
+                 
+            }} >
 
+              
               <input type="file" onChange={ (event) => {
                 this.onChangeFile(event)
+                
+                
               }
-              }/>
+              }multiple/>video
+               
+               <input type="file" onChange={ (event) => {
+                this.onChangeFile2(event)
+            
+                
+              }
+              }multiple/>imagen
                 
               <button  disabled={!this.state.file}>upload to firebase</button>
+
               </form>
-              <video   src='' className='imagen' id='myimg' alt="necesario para el usoxd" controls type="video/mp4"/>
+
+              {/* <form onSubmit= { (event) => {
+                  this.handleimage(event, this.state.file)
+            }}>
+
+              </form> */}
+
+              <video   src='' className='myimgen' id='myimgen' alt="necesario para el usoxd" controls type="video/mp4"/>
              
          <Reaccion />
             </div>

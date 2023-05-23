@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CartonDataService from "../services/carton.service";
-
+import Reaccion from "./reacciones.components";
 import Carton from "../components/tcarton.component";
 
 export default class CartonList extends Component {
@@ -40,6 +40,7 @@ export default class CartonList extends Component {
         published: data.published,
         title: data.title,
         url: data.url,
+        url_img: data.url_img
       });
     });
 
@@ -67,7 +68,7 @@ export default class CartonList extends Component {
   return (
     <div className="list row">
       <div className="col-md-6">
-        <h4>Cartons List</h4>
+        <h4>añadidos recientemente </h4>
 
         <ul className="list-group">
           {cartons &&
@@ -77,7 +78,10 @@ export default class CartonList extends Component {
                 onClick={() => this.setActiveCarton(carton, index)}
                 key={index}
               >
-                {carton.title}
+             <div>  <img src={carton.url_img}  className="img"  alt="algo para que asirva"></img> 
+            
+             </div>
+             
               </li>
             ))}
         </ul>
