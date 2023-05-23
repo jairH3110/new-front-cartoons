@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CartonDataService from "../services/carton.service";
-import Reaccion from "./reacciones.components";
+
 import Carton from "../components/tcarton.component";
 
 export default class CartonList extends Component {

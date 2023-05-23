@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import firestore from "./firebase";
+
 import { listAll } from "firebase/storage";
 import AddCarton from "./components/add-carton.component";
 import CartonList from "./components/ts-listcarton.component";

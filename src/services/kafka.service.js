@@ -1,4 +1,4 @@
-class kafkaService {
+class kafkaServices {
   //url = 'https://your-kafka-express-service-kafka-adsoftsito.cloud.okteto.net/';
   url = 'http://localhost:8080/'
  
@@ -19,5 +19,5 @@ class kafkaService {
   }
 
 }
-
-export default new kafkaService();
+const kafkaService =  new kafkaServices();
+export default  kafkaService();

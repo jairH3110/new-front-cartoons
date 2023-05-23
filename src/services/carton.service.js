@@ -1,8 +1,7 @@
 import firebase from "../firebase";
-
 const db = firebase.collection("cartons");
 
-class CartonDataService {
+class CartonDataServices {
   getAll() {
     return db;
   }
@@ -19,5 +18,5 @@ class CartonDataService {
     return db.doc(id).delete();
   }
 }
-
-export default new CartonDataService();
+const CartonDataService = new CartonDataServices();
+export default  CartonDataService();

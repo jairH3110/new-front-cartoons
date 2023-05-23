@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import CartonDataService from "../services/carton.service";
 import Reaccion from "./reacciones.components";
 import 'firebase/compat/storage'
