@@ -1,6 +1,6 @@
 class kafkaServices {
   //url = 'https://your-kafka-express-service-kafka-adsoftsito.cloud.okteto.net/';
-  url = 'https://kafka-consumer-jairh3110.cloud.okteto.net/'
+  url = 'https://nodexd-service-jairh3110.cloud.okteto.net/'
  
   reaction = async (name) => {
    await fetch(this.url + 'like?name=' + name, {
