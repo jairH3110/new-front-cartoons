@@ -2,6 +2,7 @@ import  firebase from 'firebase/compat/app';
 import 'firebase/compat/storage'
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import {getAuth,GoogleAuthProvider} from 'firebase/auth'
 let songsArrayList = [];
 
 const firebaseConfig = {
@@ -47,5 +48,7 @@ const firestore = firebaseApp.firestore();
 
 const storage = firebase.storage();
 
+const auth= getAuth(firebaseApp);
+const provider = new GoogleAuthProvider();
 
-export  {storage ,listAll ,firestore as default}
+export  {storage,auth,provider,listAll ,firestore as default}

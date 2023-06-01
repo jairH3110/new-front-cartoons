@@ -14,10 +14,17 @@ class App extends Component {
     const listvideos = () =>{
       listAll("/images")
     };
+
+    const logout=()=>{
+      localStorage.clear()
+      window.location.reload()
+    }  
+    
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark"> <img src='https://lh3.ggpht.com/OOXV4V9YyovafA10xZhq0QgWNwFwCEhMI9kWJ2FDkjMmLa7rDWJmSmnsgOtMWdDGg3A=w300'   width="40"
-     height="41" alt=""></img>
+     height="41" alt=""></img> <p >asd</p>
+
           <a href="/tutorials" className="navbar-brand">
             
           </a>
@@ -32,6 +39,8 @@ class App extends Component {
                 visualizar-carton
               </Link>
             </li>
+            <button onClick={logout}>cerrar sesion</button>
+            
           </div>
         </nav>
 
@@ -39,6 +48,8 @@ class App extends Component {
            
         <div className="container mt-3">                               
           <h2>reproductor youtube con firebase</h2>
+
+       
           <Routes>
 
             <Route exact path="/tutorials" element={<CartonList />} />
@@ -46,6 +57,7 @@ class App extends Component {
           
           </Routes>
         </div>
+        
       </div>
     );
   }

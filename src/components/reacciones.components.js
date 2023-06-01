@@ -16,7 +16,83 @@ function saveLike(e, status) {
 
   console.log(JSON.stringify(data));
 
-  kafkaService.reaction("i-love-adsoftsito");
+  kafkaService.reaction("Like");
+  e.preventDefault();
+
+  
+}
+
+function saveLove(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("Love");
+  e.preventDefault();
+
+  
+}
+
+function saveJaja(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("Enrisa");
+  e.preventDefault();
+
+  
+}
+
+function saveSad(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("Sadness");
+  e.preventDefault();
+
+  
+}
+
+
+function saveAngry(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("Angry");
+  e.preventDefault();
+
+  
+}
+
+function saveAsom(e, status) {
+  
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+
+  kafkaService.reaction("Asombrao");
   e.preventDefault();
 
   
@@ -49,12 +125,12 @@ desaparecer(){
         <div  id="cont-iconos" onClick={this.desaparecer}>
            <span  ><img  src={asom} alt=""  onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1) }} /></span>
-           <span ><img src={enc} alt="" onClick={this.desaparecer} /></span>
-           <span ><img src={gusta} alt="" onClick={this.desaparecer} /></span>
-           <span ><img src={awita} alt=""  onClick={this.desaparecer}/></span>
-           <span ><img src={angry} alt=""  onClick={this.desaparecer}/></span>
-           <span ><img src={enrisa} alt="" onClick={this.desaparecer} /></span>
+                    saveAsom(e, 1) }} /></span>
+           <span ><img src={enc} alt=""  onClick={(e) => { e.preventDefault(); saveLove(e, 1) }} /></span>
+           <span ><img src={gusta} alt=""  onClick={(e) => { e.preventDefault(); saveLike(e, 1) }} /></span>
+           <span ><img src={awita} alt=""   onClick={(e) => { e.preventDefault(); saveSad(e, 1) }}/></span>
+           <span ><img src={angry} alt=""   onClick={(e) => { e.preventDefault(); saveAngry(e, 1) }}/></span>
+           <span ><img src={enrisa} alt=""  onClick={(e) => { e.preventDefault(); saveJaja(e, 1) }} /></span>
            
         </div>
         <button onClick={this.mostrar1} id="titulo">reacciones</button>
